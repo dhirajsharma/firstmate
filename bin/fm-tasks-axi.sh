@@ -14,6 +14,16 @@
 # stores it verbatim as a link, which lifecycle transitions record relative to
 # that same root.
 #
+# Durable task notes: keep free-form notes free of temporary paths, moving
+# versions, ephemeral identifiers, and copied state that will rot. Inspect the
+# current task note before replacing its considered body, and archive the
+# superseded body when recoverability matters rather than appending by default.
+# Verify volatile details in a note against their authoritative config, live
+# system, or API before acting on them, and correct or delete stale prose
+# immediately. Preserve durable structured identifiers, dependencies, and
+# completion artifact links, and route reusable knowledge to its AGENTS.md
+# section 6 owner rather than scattering it through task notes.
+#
 # Why it exists: a bare `tasks-axi` resolves the tracked `.tasks.toml` paths
 # against its working directory, so from the code root it forks the queue
 # whenever the home lives elsewhere; docs/configuration.md ("Backlog backend")

@@ -13,12 +13,19 @@ metadata:
 # ask-user-authority
 
 This skill is the single owner of the decision policy for no-mistakes ask-user findings.
-`AGENTS.md` section 7 points here and does not restate this procedure.
+`AGENTS.md` sections 7 and 13 point here and do not restate this procedure.
 Finding authority is determined by the criteria below, not by `yolo`.
 Firstmate always applies this judgment, decides any finding that is unambiguous toward the accepted design, and escalates only genuinely ambiguous, expanding, or destructive findings.
 
 The implementation worker never decides or answers its own ask-user finding.
 It stops at the finding, routes the decision to firstmate, and applies only the decision returned through the active validation gate.
+
+## Deliver the decision
+
+Whether firstmate decided the finding or the captain answered its escalation, send the same worker one exact decision naming the decision key, step, action, affected finding IDs, instructions where needed, and the exact response command.
+Pass `bin/fm-send.sh --resolve-key` with that steer so the worker's open decision record closes at answer time.
+Require the matching `resolved` event, forbid `--yes`, and require the worker to process every synchronous return until completion or a genuinely new escalation.
+Resume fleet supervision immediately after the decision lands.
 
 ## Decide
 

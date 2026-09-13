@@ -62,6 +62,7 @@ If an addition needs more than a few lines of conditional detail (detail that ma
 `AGENTS.md`'s token cost is paid by every session of every fleet member, every time, whether or not that session ever hits the situation the new lines describe.
 A skill's cost is paid only by the sessions that actually load it.
 When in doubt, write the fact into the skill or doc first by patching that owner's existing language, and add only the one-line trigger to `AGENTS.md`.
+`tests/fm-agents-contract.test.sh` enforces this: `AGENTS.md` must fit Codex's default 32 KiB project-doc limit, each primary harness's composed empty-home startup must stay within its reviewed cap, and every rule removed from `AGENTS.md` needs a ledger row proving the owner that now states it and the visible trigger that reaches that owner.
 
 ## Trigger hygiene
 

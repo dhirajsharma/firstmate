@@ -7,7 +7,14 @@
 # own ask plus the context needed to read it, including the substance of any
 # report, decision, or PR the ask refers to) and `{FIRSTMATE_SPEC}`
 # under `## Firstmate spec` (build instructions, which are never the captain's
-# intent). bin/fm-dod-lib.sh owns the no-mistakes `--intent` contract those
+# intent). Keep any boundary the captain stated, and never widen
+# `## Captain's intent` into a general goal or an enumerated coverage list,
+# because the reviewer treats that subsection as acceptance criteria. Fill
+# `## Firstmate spec` with only the build instructions that ask requires, naming
+# what stays out of scope when the ask is narrow; a generalization, consistency
+# sweep, or extra hardening the captain did not ask for is follow-up work to
+# note, not scope to add. Keep additions task-specific rather than repeating
+# lifecycle instructions. bin/fm-dod-lib.sh owns the no-mistakes `--intent` contract those
 # subsections feed; bin/fm-spawn.sh refuses leftover placeholders. Secondmate
 # charters still use a single `{TASK}` charter fill. Firstmate may adjust other
 # sections when the task genuinely deviates (e.g. working an existing external

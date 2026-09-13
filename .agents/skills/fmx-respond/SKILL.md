@@ -231,7 +231,7 @@ A non-final dry-run follow-up increments `x_followups` and keeps the link while 
 ## Completion follow-up (posted on milestone and done wakes, not this turn)
 
 When an actionable request spawned a task and you linked it (step 2c), progress and the **outcome** are delivered later as follow-up replies, not in this turn.
-This skill is the sole owner of the completion-follow-up procedure below; AGENTS.md §13 declares the load trigger for Relay-linked milestone or terminal wakes, and AGENTS.md §8 reinforces the terminal final-follow-up step before teardown.
+This skill is the sole owner of the completion-follow-up procedure below; AGENTS.md §13 declares the load trigger for Relay-linked milestone or terminal wakes, including loading this skill before that task's terminal follow-up or cleanup.
 This skill's own responsibility during the mention-handling turn is linking the task in step 2c; the full completion path is:
 
 - Firstmate has **up to three** follow-ups per mention, within a 7-day window, chained in the same thread - it spends them only on genuine milestones the captain would want surfaced (e.g. investigation done and a build started, work shipped or ready, or the task failing), never on routine internal churn.
@@ -279,7 +279,7 @@ So treat second-mate-routed Relay work as a promised final by construction: the 
    Delivery clears the bound task's legacy Relay link at the validated receipt boundary and stamps the registration `state=delivered`; it does **not** close the public loop.
    If it reports a cleanup failure, use its reconciliation message and do not post a legacy final.
 3. Read the outcome and stop guessing at anything it refuses:
-   - "still waiting on its bound work" means the work has not reported a typed terminal result yet - do not post.
+   - "still waiting on its bound work" means the work has not reported a typed terminal result yet - do not post, and never recover a terminal result by reading a worker's `done:` sentence.
    - "recorded as retryable" means nothing was posted; retry on a later wake.
    - "held" means the thread's platform or budget is unresolvable right now; retry once it is recoverable.
    - "mid-delivery" means a previous post started and its outcome was never recorded.
